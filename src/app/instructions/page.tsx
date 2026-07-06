@@ -14,7 +14,7 @@ const steps = [
   },
   {
     title: "Duration",
-    body: "The study takes approximately 20 minutes. Please complete it in one sitting without interruption. Do not close the browser tab or navigate away during the task.",
+    body: "The study takes approximately 6 minutes. Please complete it in one sitting without interruption. Do not close the browser tab or navigate away during the task.",
   },
 ];
 

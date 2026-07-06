@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { recordResponse, completeTask } from "./actions";
 
 // --- Experimental parameters ---
-const PHASE_MINS = [0.5, 0.5, 0.2]; // minutes per condition (phase 1, 2, 3)
+const PHASE_MINS = [2.0, 2.0, 1.0]; // minutes per condition (phase 1, 2, 3)
 const PHASE_BG_COLORS = ["#e0f2fe", "#fef9c3", "#fce7f3"]; // background color per phase
 const FR_R1 = 1;
 const FR_R2 = 1;
 const CIRCLE_SIZE = 120; // diameter in pixels
-const SPEED = 5.5; // pixels per animation frame
+const SPEED = 2.5; // pixels per animation frame
 // --------------------------------
 
 type Circle = { x: number; y: number; dx: number; dy: number };
