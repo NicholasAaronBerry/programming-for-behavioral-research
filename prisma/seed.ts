@@ -38,8 +38,11 @@ const bool = (v: string) => v === "t";
 
 async function main() {
   const dataDir = path.join(__dirname, "seed-data");
+  const suffix = process.argv.includes("--synthetic") ? "Synthetic" : "";
 
-  const participants = parseCSV(path.join(dataDir, "participants.csv"));
+  const participants = parseCSV(
+    path.join(dataDir, `participants${suffix}.csv`)
+  );
   for (const p of participants) {
     await prisma.participant.upsert({
       where: { id: p.id },
@@ -57,7 +60,9 @@ async function main() {
   }
   console.log(`Seeded ${participants.length} participants`);
 
-  const demographics = parseCSV(path.join(dataDir, "demographics.csv"));
+  const demographics = parseCSV(
+    path.join(dataDir, `demographics${suffix}.csv`)
+  );
   for (const d of demographics) {
     await prisma.demographics.upsert({
       where: { id: d.id },
@@ -74,7 +79,7 @@ async function main() {
   }
   console.log(`Seeded ${demographics.length} demographics`);
 
-  const responses = parseCSV(path.join(dataDir, "responses.csv"));
+  const responses = parseCSV(path.join(dataDir, `responses${suffix}.csv`));
   for (const r of responses) {
     await prisma.response.upsert({
       where: { id: r.id },
