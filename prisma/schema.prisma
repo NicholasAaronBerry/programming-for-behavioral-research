@@ -21,6 +21,9 @@ model Participant {
   instructionsCompleted Boolean       @default(false)      // true after passing the check
   comprehensionAttempts Int           @default(0)          // how many tries it took
   taskCompleted         Boolean       @default(false)      // true after phase 3 ends
+  phase1StartedAt       DateTime? // set the instant phase 1 begins (task mount)
+  phase2StartedAt       DateTime? // set the instant the phase timer advances to phase 2
+  phase3StartedAt       DateTime? // set the instant the phase timer advances to phase 3
   responses             Response[]
 }
 

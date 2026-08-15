@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { recordResponse, completeTask } from "./actions";
+import { recordResponse, completeTask, recordPhaseStart } from "./actions";
 
 // --- Experimental parameters ---
 const PHASE_MINS = [0.5, 0.5, 0.2]; // minutes per condition (phase 1, 2, 3)
@@ -45,6 +45,11 @@ export default function TaskPage() {
   const calledComplete = useRef(false);
   const animRef = useRef<number>(0);
   const isFirstPhase = useRef(true);
+
+  // Record the exact instant each phase begins (including phase 1, on mount)
+  useEffect(() => {
+    recordPhaseStart(phase);
+  }, [phase]);
 
   // Show overlay on phase change (skip phase 1 start)
   useEffect(() => {
